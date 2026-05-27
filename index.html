@@ -1,0 +1,343 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;900&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;height:100%;background:#f4f5f7;overflow:hidden}
+body{font-family:'Barlow',system-ui,sans-serif}
+#kw{position:relative;width:100%;height:100vh;background:linear-gradient(170deg,#7A8DB8 0%,#96A9CE 60%,#A3B4D4 100%);border-radius:0;overflow:hidden;cursor:pointer;transition:opacity .6s ease;will-change:opacity}
+#kw.hidden{opacity:0;pointer-events:none}
+#kc{position:absolute;inset:0;width:100%;height:100%}
+#kr{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+#ko{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;user-select:none;z-index:2}
+#kn{font-family:'Barlow',system-ui,sans-serif;font-weight:900;font-size:clamp(64px,13vw,108px);color:#fff;letter-spacing:-2px;line-height:1}
+#ks{font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:18px;color:rgba(255,255,255,.72);margin-top:10px;transition:opacity .55s ease;letter-spacing:.02em}
+
+#portfolio{position:fixed;inset:0;background:#f4f5f7;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .6s ease;will-change:opacity}
+#portfolio.show{opacity:1;pointer-events:auto}
+#pheader{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:28px 48px;background:rgba(244,245,247,.85);backdrop-filter:blur(12px);z-index:10}
+#plogo{font-weight:900;font-size:28px;color:#000;letter-spacing:-1px}
+#pnav{display:flex;gap:32px;font-weight:300;font-size:15px;color:#555}
+.pcontainer{max-width:1400px;margin:0 auto;padding:24px 48px 80px}
+.phero{background:#fff;border-radius:32px;padding:36px 40px;box-shadow:0 4px 24px rgba(0,0,0,.06);display:flex;align-items:center;gap:28px;margin-bottom:32px;opacity:0;transform:translate3d(0,30px,0);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease;will-change:transform,opacity}
+.phero.in{opacity:1;transform:translate3d(0,0,0)}
+.pavatarwrap{position:relative;flex-shrink:0;width:96px;height:96px}
+.pavatar{width:96px;height:96px;border-radius:50%;background:#e9ecef;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.1);display:block}
+.pstatus{position:absolute;bottom:2px;right:2px;width:22px;height:22px;border-radius:50%;border:3px solid #fff;background:#80848E;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.pstatus.online{background:#23A55A}
+.pstatus.idle{background:#F0B232}
+.pstatus.dnd{background:#F23F43}
+.pstatus.offline{background:#80848E}
+.pheroinfo{flex:1;min-width:0}
+.pheroname{font-weight:900;font-size:36px;color:#000;letter-spacing:-1.5px;line-height:1}
+.pherobio{font-weight:400;font-size:17px;color:#222;margin-top:10px;line-height:1.5;max-width:640px}
+.pherobio strong{font-weight:900;color:#000}
+.pdm{font-family:'Barlow',system-ui,sans-serif;font-weight:900;font-size:15px;padding:14px 26px;background:#5865F2;color:#fff;text-decoration:none;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;letter-spacing:.02em;flex-shrink:0;box-shadow:0 4px 16px rgba(88,101,242,.35);display:inline-flex;align-items:center;gap:8px}
+.pdm:hover{transform:translate3d(0,-2px,0) scale(1.03);box-shadow:0 8px 24px rgba(88,101,242,.5);background:#4752C4}
+.pdm svg{width:18px;height:18px}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.pcard{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,opacity .35s ease;opacity:0;transform:translate3d(0,30px,0);will-change:transform,opacity}
+.pcard.in{opacity:1;transform:translate3d(0,0,0)}
+.pcard:hover{transform:translate3d(0,-6px,0);box-shadow:0 16px 48px rgba(0,0,0,.12)}
+.pthumb{width:100%;aspect-ratio:16/10;background:#e9ecef;display:block;object-fit:cover;border-bottom:1px solid rgba(0,0,0,.04)}
+.pinfo{display:flex;align-items:center;justify-content:space-between;padding:20px 24px}
+.ptitle{font-weight:900;font-size:20px;color:#111;letter-spacing:-.5px}
+.pvisit{font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:14px;padding:10px 20px;background:#000;color:#fff;text-decoration:none;border-radius:999px;transition:background .25s ease,transform .25s ease;letter-spacing:.02em}
+.pvisit:hover{background:#333;transform:scale(1.05)}
+@media(max-width:760px){.pcontainer{padding:16px 20px 60px}.pgrid{grid-template-columns:1fr;gap:20px}.phero{flex-direction:column;text-align:center;padding:28px 24px}.pheroname{font-size:28px}.pherobio{margin-left:auto;margin-right:auto}#pheader{padding:20px 24px}}
+</style>
+<div id="kw">
+  <canvas id="kc"></canvas>
+  <canvas id="kr"></canvas>
+  <div id="ko">
+    <div id="kn">KAMII</div>
+    <div id="ks">software engineer.</div>
+  </div>
+</div>
+<div id="portfolio">
+  <div id="pheader">
+    <div id="plogo">Kamii</div>
+  </div>
+  <div class="pcontainer">
+    <div class="phero" id="phero">
+      <div class="pavatarwrap">
+        <img class="pavatar" id="pavatar" alt="Kamii" src="https://cdn.discordapp.com/embed/avatars/0.png">
+        <div class="pstatus offline" id="pstatus"></div>
+      </div>
+      <div class="pheroinfo">
+        <div class="pheroname">kamii</div>
+        <div class="pherobio">Fullstack developer, I mainly use <strong>python</strong>, <strong>javascript</strong>, <strong>html</strong>, <strong>react</strong>, and whatever else you request. I quickly and efficiently am able to deliver ontime.</div>
+      </div>
+      <a class="pdm" href="https://discord.com/users/1244463352793665616" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        DM on Discord
+      </a>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const labels=['software engineer.','full stack dev.','cash lover.'];
+let li=0;
+const subEl=document.getElementById('ks');
+setInterval(()=>{
+  subEl.style.opacity='0';
+  setTimeout(()=>{li=(li+1)%3;subEl.textContent=labels[li];subEl.style.opacity='1';},560);
+},2800);
+
+function updatePresence(){
+  fetch('https://api.lanyard.rest/v1/users/1244463352793665616').then(r=>r.json()).then(d=>{
+    if(!d||!d.success||!d.data)return;
+    const u=d.data.discord_user;
+    if(u&&u.avatar){
+      const ext=u.avatar.startsWith('a_')?'gif':'png';
+      document.getElementById('pavatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.${ext}?size=256`;
+    }
+    const status=d.data.discord_status||'offline';
+    const el=document.getElementById('pstatus');
+    el.className='pstatus '+status;
+  }).catch(()=>{});
+}
+updatePresence();
+setInterval(updatePresence,30000);
+
+function init(){
+  if(typeof THREE==='undefined'){setTimeout(init,60);return;}
+  const wrap=document.getElementById('kw');
+  const canvas=document.getElementById('kc');
+  const rippleCanvas=document.getElementById('kr');
+  const W=wrap.clientWidth||680, H=wrap.clientHeight||460;
+
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:'high-performance'});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+  renderer.setSize(W,H);
+
+  rippleCanvas.width=W;
+  rippleCanvas.height=H;
+  const rCtx=rippleCanvas.getContext('2d');
+
+  const scene=new THREE.Scene();
+  const cam=new THREE.PerspectiveCamera(42,W/H,0.1,100);
+  cam.position.z=13;
+
+  const amb=new THREE.AmbientLight(0xffffff,0.5);
+  scene.add(amb);
+  const sun=new THREE.DirectionalLight(0xffffff,1.4);
+  sun.position.set(5,7,6);
+  scene.add(sun);
+  const fill=new THREE.DirectionalLight(0xB8C8E8,0.28);
+  fill.position.set(-5,-3,4);
+  scene.add(fill);
+
+  const mat=new THREE.MeshStandardMaterial({color:0xBFADA8,roughness:0.62,metalness:0.04});
+
+  const raw=[
+    [0,.4,0,1.15],[-1.25,1.05,.3,.88],[1.15,1.35,-.25,.92],
+    [-.3,-.85,.5,1.02],[1.45,-.35,.1,.76],[-1.55,-.4,-.25,.82],
+    [.55,2.15,.2,.62],[-.82,2.05,-.3,.56],[2.1,.65,.4,.71],
+    [-2.05,.85,.1,.73],[.2,-1.95,-.2,.82],[1.3,-1.45,.3,.66],
+    [-1.12,-1.62,.42,.61],[2.25,-1.0,-.1,.56],[-2.3,-.95,.2,.51],
+    [.72,1.05,1.25,.46],[-.52,-.32,1.05,.51],[1.82,1.82,.5,.46],
+    [-1.82,1.92,.32,.43],[0,-2.55,.22,.66],[2.52,0,-.3,.49],
+    [-2.5,-1.82,0,.41],[.32,2.85,.5,.39],[1.05,-.5,-1.0,.51],
+    [-0.6,0.2,-0.8,.44],[0.0,1.6,0.9,.38],
+  ];
+
+  const meshes=raw.map(([x,y,z,r])=>{
+    const m=new THREE.Mesh(new THREE.SphereGeometry(r,12,12),mat);
+    m.position.set(x,y,z);
+    scene.add(m);
+    return{m,x,y,z,r,
+      p:Math.random()*Math.PI*2,
+      p2:Math.random()*Math.PI*2,
+      p3:Math.random()*Math.PI*2,
+      s:0.12+Math.random()*0.22
+    };
+  });
+
+  const states=raw.map(([x,y,z])=>({cx:x,cy:y,cz:z,vx:0,vy:0,vz:0}));
+  const N=states.length;
+
+  const raycaster=new THREE.Raycaster();
+  const mNDC=new THREE.Vector2();
+  const plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
+  let mWorld=null;
+
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    mNDC.x=((e.clientX-r.left)/r.width)*2-1;
+    mNDC.y=-((e.clientY-r.top)/r.height)*2+1;
+    raycaster.setFromCamera(mNDC,cam);
+    const hit=new THREE.Vector3();
+    mWorld=raycaster.ray.intersectPlane(plane,hit)?hit:null;
+  });
+  wrap.addEventListener('mouseleave',()=>{mWorld=null;});
+
+  let ripples=[];
+  let transitionTriggered=false;
+  wrap.addEventListener('click',e=>{
+    if(transitionTriggered)return;
+    const r=wrap.getBoundingClientRect();
+    const mx=e.clientX-r.left;
+    const my=e.clientY-r.top;
+    const maxR=Math.sqrt(
+      Math.pow(Math.max(mx,W-mx),2)+
+      Math.pow(Math.max(my,H-my),2)
+    )+10;
+    ripples.push({mx,my,maxR,r:0,alpha:1,phase:'expand',onDone:()=>{
+      transitionTriggered=true;
+      showPortfolio();
+    }});
+  });
+
+  const sites=[
+    {name:'Dynamic Achievers',url:'https://www.dynamicachievers.org/'},
+    {name:'Astrix',url:'https://astrix-web-panel.vercel.app/'},
+    {name:'DS Advisors',url:'https://www.dsadvisors.us/'},
+    {name:'XenoxDB',url:'https://xenoxdb.vercel.app/'},
+    {name:'Vital Online',url:'https://vitalonline.vercel.app/'},
+    {name:'SkillSpring',url:'https://skillspring-gules.vercel.app/'}
+  ];
+  const grid=document.getElementById('pgrid');
+  const portfolioBuilt=(function(){
+    const frag=document.createDocumentFragment();
+    sites.forEach(s=>{
+      const card=document.createElement('div');
+      card.className='pcard';
+      const thumbUrl=`https://api.microlink.io/?url=${encodeURIComponent(s.url)}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800`;
+      card.innerHTML=`<img class="pthumb" src="${thumbUrl}" alt="${s.name}" loading="eager"><div class="pinfo"><div class="ptitle">${s.name}</div><a class="pvisit" href="${s.url}" target="_blank" rel="noopener">Visit</a></div>`;
+      frag.appendChild(card);
+    });
+    grid.appendChild(frag);
+    return Array.from(grid.children);
+  })();
+
+  let rafRunning=true;
+  function showPortfolio(){
+    document.getElementById('portfolio').classList.add('show');
+    document.getElementById('kw').classList.add('hidden');
+    document.body.style.overflow='auto';
+    requestAnimationFrame(()=>{
+      document.getElementById('phero').classList.add('in');
+      portfolioBuilt.forEach((card,i)=>{
+        setTimeout(()=>card.classList.add('in'),120+i*80);
+      });
+    });
+    setTimeout(()=>{
+      document.getElementById('kw').style.display='none';
+      rafRunning=false;
+    },700);
+  }
+
+  let t=0;
+  (function loop(){
+    if(!rafRunning)return;
+    requestAnimationFrame(loop);
+    t+=.007;
+
+    for(let i=0;i<N;i++){
+      const o=meshes[i];
+      const st=states[i];
+      const f1=t*o.s, f2=t*o.s*1.414, f3=t*o.s*0.577, f4=t*o.s*1.732;
+      const tx=o.x+Math.sin(f1+o.p)*0.38+Math.sin(f2+o.p2)*0.18;
+      const ty=o.y+Math.cos(f1*0.82+o.p)*0.35+Math.cos(f4+o.p2)*0.16;
+      const tz=o.z+Math.sin(f3+o.p3)*0.28+Math.cos(f2*0.7+o.p)*0.12;
+      st.vx+=(tx-st.cx)*0.016;
+      st.vy+=(ty-st.cy)*0.016;
+      st.vz+=(tz-st.cz)*0.016;
+
+      if(mWorld){
+        const dx=st.cx-mWorld.x, dy=st.cy-mWorld.y, dz=st.cz-mWorld.z*0.1;
+        const d2=dx*dx+dy*dy+dz*dz, R=3.0;
+        if(d2<R*R&&d2>0.0001){
+          const d=Math.sqrt(d2);
+          const f=Math.pow((R-d)/R,1.5)*0.22;
+          st.vx+=(dx/d)*f; st.vy+=(dy/d)*f; st.vz+=(dz/d)*f*0.15;
+        }
+      }
+
+      const spd=Math.sqrt(st.vx*st.vx+st.vy*st.vy+st.vz*st.vz);
+      if(spd>0.22){const sc=0.22/spd;st.vx*=sc;st.vy*=sc;st.vz*=sc;}
+      st.vx*=0.92; st.vy*=0.92; st.vz*=0.92;
+      st.cx+=st.vx; st.cy+=st.vy; st.cz+=st.vz;
+    }
+
+    for(let pass=0;pass<2;pass++){
+      for(let i=0;i<N;i++){
+        for(let j=i+1;j<N;j++){
+          const si=states[i];
+          const sj=states[j];
+          const dx=sj.cx-si.cx;
+          const dy=sj.cy-si.cy;
+          const dz=sj.cz-si.cz;
+          const d2=dx*dx+dy*dy+dz*dz;
+          const minD=meshes[i].r+meshes[j].r;
+          if(d2<minD*minD){
+            if(d2<0.0001){
+              si.cx+=Math.random()*0.02-0.01;
+              si.cy+=Math.random()*0.02-0.01;
+              continue;
+            }
+            const d=Math.sqrt(d2);
+            const ov=(minD-d)*0.5;
+            const nx=dx/d;
+            const ny=dy/d;
+            const nz=dz/d;
+            si.cx-=nx*ov;
+            si.cy-=ny*ov;
+            si.cz-=nz*ov;
+            sj.cx+=nx*ov;
+            sj.cy+=ny*ov;
+            sj.cz+=nz*ov;
+            const rvx=sj.vx-si.vx;
+            const rvy=sj.vy-si.vy;
+            const rvz=sj.vz-si.vz;
+            const dot=rvx*nx+rvy*ny+rvz*nz;
+            if(dot<0){
+              const imp=dot*0.12;
+              si.vx+=imp*nx;
+              si.vy+=imp*ny;
+              si.vz+=imp*nz;
+              sj.vx-=imp*nx;
+              sj.vy-=imp*ny;
+              sj.vz-=imp*nz;
+            }
+          }
+        }
+      }
+    }
+
+    for(let i=0;i<N;i++){
+      const o=meshes[i], st=states[i];
+      o.m.position.set(st.cx,st.cy,st.cz);
+      o.m.scale.setScalar(1+Math.sin(t*o.s*1.6+o.p)*0.022);
+    }
+
+    renderer.render(scene,cam);
+
+    if(ripples.length>0){
+      rCtx.clearRect(0,0,W,H);
+      for(const rp of ripples){
+        if(rp.phase==='expand'){
+          rp.r+=(rp.maxR-rp.r)*0.1+2;
+          if(rp.r>=rp.maxR*0.998){
+            rp.r=rp.maxR;
+            rp.phase='done';
+            if(rp.onDone&&!rp.done){rp.done=true;rp.onDone();}
+          }
+        }
+        rCtx.beginPath();
+        rCtx.arc(rp.mx,rp.my,rp.r,0,Math.PI*2);
+        rCtx.fillStyle=`rgba(255,255,255,${rp.alpha})`;
+        rCtx.fill();
+      }
+    }
+  })();
+
+  window.addEventListener('resize',()=>{
+    const nw=wrap.clientWidth, nh=wrap.clientHeight;
+    cam.aspect=nw/nh; cam.updateProjectionMatrix(); renderer.setSize(nw,nh);
+    rippleCanvas.width=nw; rippleCanvas.height=nh;
+  });
+}
+init();
+</script>
