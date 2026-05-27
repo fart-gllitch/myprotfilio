@@ -10,6 +10,9 @@ body{font-family:'Barlow',system-ui,sans-serif}
 #ko{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;user-select:none;z-index:2}
 #kn{font-family:'Barlow',system-ui,sans-serif;font-weight:900;font-size:clamp(64px,13vw,108px);color:#fff;letter-spacing:-2px;line-height:1}
 #ks{font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:18px;color:rgba(255,255,255,.72);margin-top:10px;transition:opacity .55s ease;letter-spacing:.02em}
+#khint{position:absolute;bottom:28px;right:32px;font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:14px;color:rgba(255,255,255,.8);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;user-select:none;z-index:3;animation:khintpulse 2.2s ease-in-out infinite}
+#khint .kdot{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px rgba(255,255,255,.6)}
+@keyframes khintpulse{0%,100%{opacity:.55}50%{opacity:1}}
 
 #portfolio{position:fixed;inset:0;background:#f4f5f7;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .6s ease;will-change:opacity}
 #portfolio.show{opacity:1;pointer-events:auto}
@@ -51,6 +54,7 @@ body{font-family:'Barlow',system-ui,sans-serif}
     <div id="kn">KAMII</div>
     <div id="ks">software engineer.</div>
   </div>
+  <div id="khint"><span class="kdot"></span>Click to proceed</div>
 </div>
 <div id="portfolio">
   <div id="pheader">
