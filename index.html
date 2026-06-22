@@ -4,115 +4,116 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kamii — Fullstack Developer</title>
-<meta name="description" content="Fullstack developer. Python, JavaScript, HTML, React, and more. Quick turnaround, clean code.">
+<meta name="description" content="Fullstack developer. Python, JavaScript, HTML, React, and more.">
 <meta name="theme-color" content="#7A8DB8">
-
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kamii — Fullstack Developer">
 <meta property="og:description" content="Fullstack developer. Python, JavaScript, HTML, React, and more. Quick turnaround, clean code.">
 <meta property="og:image" content="/api/avatar">
-<meta property="og:site_name" content="kamii">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kamii — Fullstack Developer">
-<meta name="twitter:description" content="Fullstack developer. Python, JavaScript, HTML, React, and more. Quick turnaround, clean code.">
-
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;height:100%;background:#f4f5f7;overflow:hidden;-webkit-text-size-adjust:100%}
 body{font-family:'Barlow',system-ui,sans-serif}
-#kw{position:relative;width:100%;height:100vh;height:100dvh;background:linear-gradient(170deg,#7A8DB8 0%,#96A9CE 60%,#A3B4D4 100%);border-radius:0;overflow:hidden;cursor:pointer;transition:opacity .6s ease;will-change:opacity;touch-action:manipulation}
+
+/* ── Splash ── */
+#kw{position:relative;width:100%;height:100vh;height:100dvh;background:linear-gradient(170deg,#7A8DB8 0%,#96A9CE 60%,#A3B4D4 100%);overflow:hidden;cursor:pointer;transition:opacity .55s ease;touch-action:manipulation}
 #kw.hidden{opacity:0;pointer-events:none}
 #kc{position:absolute;inset:0;width:100%;height:100%}
 #kr{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 #ko{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;user-select:none;z-index:2}
-#kn{font-family:'Barlow',system-ui,sans-serif;font-weight:900;font-size:clamp(64px,13vw,108px);color:#fff;letter-spacing:-2px;line-height:1}
-#ks{font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:18px;color:rgba(255,255,255,.72);margin-top:10px;transition:opacity .55s ease;letter-spacing:.02em}
-#khint{position:absolute;bottom:max(28px,env(safe-area-inset-bottom,0px));right:max(20px,env(safe-area-inset-right,0px));font-family:'Barlow',system-ui,sans-serif;font-weight:600;font-size:13px;color:#000;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;user-select:none;z-index:3}
+#kn{font-weight:900;font-size:clamp(64px,13vw,108px);color:#fff;letter-spacing:-2px;line-height:1}
+#ks{font-weight:300;font-size:18px;color:rgba(255,255,255,.72);margin-top:10px;transition:opacity .45s ease;letter-spacing:.02em}
+#khint{position:absolute;bottom:max(28px,env(safe-area-inset-bottom,0px));right:max(20px,env(safe-area-inset-right,0px));font-weight:600;font-size:13px;color:#000;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px;pointer-events:none;user-select:none;z-index:3}
 #khint .kdot{width:8px;height:8px;border-radius:50%;background:#000}
 
-#portfolio{position:fixed;inset:0;background:#f4f5f7;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .6s ease;will-change:opacity}
+/* ── Portfolio ── */
+#portfolio{position:fixed;inset:0;background:#f4f5f7;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .55s ease}
 #portfolio.show{opacity:1;pointer-events:auto}
-#pheader{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:rgba(244,245,247,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:10}
+#pheader{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:rgba(244,245,247,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:10}
 #plogo{font-weight:900;font-size:28px;color:#000;letter-spacing:-1px}
-#pnav{display:flex;gap:32px;font-weight:300;font-size:15px;color:#555}
 .pcontainer{max-width:1400px;margin:0 auto;padding:24px 48px 80px}
-.pexp{background:#fff;border-radius:32px;padding:28px 32px;box-shadow:0 4px 24px rgba(0,0,0,.06);display:flex;align-items:center;gap:24px;margin-bottom:20px;opacity:0;transform:translate3d(0,30px,0);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.pexp.in{opacity:1;transform:translate3d(0,0,0)}
-.pexpicon{width:108px;height:108px;border-radius:16px;object-fit:cover;flex-shrink:0;background:#f4f5f7;border:2px solid rgba(0,0,0,.06)}
+
+/* Hero */
+.phero{background:#fff;border-radius:32px;padding:36px 40px;box-shadow:0 2px 16px rgba(0,0,0,.05);display:flex;align-items:center;gap:28px;margin-bottom:32px;opacity:0;transform:translateY(24px);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease}
+.phero.in{opacity:1;transform:none}
+.pavatarwrap{position:relative;flex-shrink:0;width:96px;height:96px}
+.pavatar{width:96px;height:96px;border-radius:50%;background:#e9ecef;object-fit:cover;border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.1);display:block}
+.pstatus{position:absolute;bottom:2px;right:2px;width:22px;height:22px;border-radius:50%;border:3px solid #fff;background:#80848E}
+.pstatus.online{background:#23A55A}
+.pstatus.idle{background:#F0B232}
+.pstatus.dnd{background:#F23F43}
+.pheroinfo{flex:1;min-width:0}
+.pheroname{font-weight:900;font-size:36px;color:#000;letter-spacing:-1.5px;line-height:1}
+.pherobio{font-weight:400;font-size:17px;color:#222;margin-top:10px;line-height:1.5;max-width:640px}
+.pherobio strong{font-weight:900;color:#000}
+.pdm{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:15px;padding:14px 26px;background:#5865F2;color:#fff;text-decoration:none;border-radius:999px;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;flex-shrink:0;box-shadow:0 3px 12px rgba(88,101,242,.3);display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
+.pdm:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 20px rgba(88,101,242,.45);background:#4752C4}
+.pdm:active{transform:scale(.98)}
+.pdm svg{width:18px;height:18px}
+
+/* Experience row */
+.pexp{background:#fff;border-radius:32px;padding:28px 32px;box-shadow:0 2px 16px rgba(0,0,0,.05);display:flex;align-items:center;gap:24px;margin-bottom:20px;opacity:0;transform:translateY(20px);transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s ease}
+.pexp.in{opacity:1;transform:none}
+.pexpicon{width:108px;height:108px;border-radius:16px;object-fit:cover;flex-shrink:0;background:#f4f5f7}
 .pexpinfo{flex:1;min-width:0}
 .pexptext{font-weight:400;font-size:16px;color:#222;line-height:1.5;letter-spacing:-.02em}
 .pexptext strong{font-weight:900;color:#000}
 .pcomm{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
 .pcommlabel{font-weight:600;font-size:11px;color:#666;letter-spacing:.08em;text-transform:uppercase}
 .pcommstatus{font-weight:700;font-size:14px;color:#23A55A;letter-spacing:-.02em}
-.phero{background:#fff;border-radius:32px;padding:36px 40px;box-shadow:0 4px 24px rgba(0,0,0,.06);display:flex;align-items:center;gap:28px;margin-bottom:32px;opacity:0;transform:translate3d(0,30px,0);transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s ease;will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.phero.in{opacity:1;transform:translate3d(0,30px,0)}
-.pavatarwrap{position:relative;flex-shrink:0;width:96px;height:96px}
-.pavatar{width:96px;height:96px;border-radius:50%;background:#e9ecef;object-fit:cover;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.1);display:block}
-.pstatus{position:absolute;bottom:2px;right:2px;width:22px;height:22px;border-radius:50%;border:3px solid #fff;background:#80848E;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-.pstatus.online{background:#23A55A}
-.pstatus.idle{background:#F0B232}
-.pstatus.dnd{background:#F23F43}
-.pstatus.offline{background:#80848E}
-.pheroinfo{flex:1;min-width:0;text-align:left}
-.pheroname{font-weight:900;font-size:36px;color:#000;letter-spacing:-1.5px;line-height:1}
-.pherobio{font-weight:400;font-size:17px;color:#222;margin-top:10px;line-height:1.5;max-width:640px}
-.pherobio strong{font-weight:900;color:#000}
-.pdm{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:600;font-size:15px;padding:14px 26px;background:#5865F2;color:#fff;text-decoration:none;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;letter-spacing:.01em;flex-shrink:0;box-shadow:0 4px 16px rgba(88,101,242,.35);display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap}
-.pdm:hover{transform:translate3d(0,-2px,0) scale(1.03);box-shadow:0 8px 24px rgba(88,101,242,.5);background:#4752C4}
-.pdm:active{transform:translate3d(0,0,0) scale(.98)}
-.pdm svg{width:18px;height:18px}
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-bottom:48px}
+
+/* Grid + cards */
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-bottom:48px}
 .psection{font-weight:900;font-size:32px;color:#000;letter-spacing:-1.5px;margin-bottom:20px}
 .psection:first-of-type{margin-top:32px}
-.pcard.video{padding:0}
-.pcard.video .pinfo{padding:16px 20px}
-.pvidposter{position:relative;width:100%;height:0;padding-bottom:56.25%;background:#000 center/cover no-repeat}
-.pplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,.3)}
-.pplay svg{width:28px;height:28px;color:#000}
-.pcard{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.06);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,opacity .35s ease;opacity:0;transform:translate3d(0,30px,0);will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.pcard.in{opacity:1;transform:translate3d(0,0,0)}
-.pcard:hover{transform:translate3d(0,-6px,0);box-shadow:0 16px 48px rgba(0,0,0,.12)}
-.pthumb{width:100%;aspect-ratio:16/10;background:#e9ecef;display:block;object-fit:cover;border-bottom:1px solid rgba(0,0,0,.04)}
+.pcard{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,opacity .35s ease;opacity:0;transform:translateY(24px)}
+.pcard.in{opacity:1;transform:none}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.1)}
+
+/* Fullstack thumbnails */
+.pthumb{width:100%;aspect-ratio:16/10;background:#e9ecef;display:block;object-fit:cover;border-bottom:1px solid rgba(0,0,0,.04);cursor:pointer}
 .pinfo{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;gap:12px;flex-wrap:wrap}
 .ptitle{font-weight:900;font-size:20px;color:#111;letter-spacing:-.5px}
-.pvisit{font-family:'Barlow',system-ui,sans-serif;font-weight:300;font-size:14px;padding:10px 20px;background:#000;color:#fff;text-decoration:none;border-radius:999px;transition:background .25s ease,transform .25s ease;letter-spacing:.02em;white-space:nowrap}
+.pvisit{font-weight:300;font-size:14px;padding:10px 20px;background:#000;color:#fff;text-decoration:none;border-radius:999px;transition:background .2s ease,transform .2s ease;letter-spacing:.02em;white-space:nowrap}
 .pvisit:hover{background:#333;transform:scale(1.05)}
 .pvisit:active{transform:scale(.96)}
+
+/* Video cards – lazy poster, play button */
+.pcard.video{padding:0}
+.pcard.video .pinfo{padding:16px 20px}
+.pvidwrap{position:relative;width:100%;padding-bottom:56.25%;background:#111;cursor:pointer;overflow:hidden}
+.pvid-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.pvid-iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:none}
+.pplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.28);transition:transform .2s ease,opacity .2s ease}
+.pplay svg{width:26px;height:26px;color:#000}
+.pvidwrap:hover .pplay{transform:translate(-50%,-50%) scale(1.1)}
+.pvidwrap.playing .pplay,.pvidwrap.playing .pvid-poster{display:none}
+.pvidwrap.playing .pvid-iframe{display:block}
+
+/* Footer */
 .pfooter{font-weight:400;font-size:16px;color:#666;text-align:center;padding:40px 20px 20px;letter-spacing:-.02em}
-.pmodal{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease;display:flex;align-items:center;justify-content:center;padding:20px;will-change:opacity}
+
+/* Image modal */
+.pmodal{position:fixed;inset:0;background:rgba(0,0,0,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:100;opacity:0;pointer-events:none;transition:opacity .25s ease;display:flex;align-items:center;justify-content:center;padding:20px}
 .pmodal.show{opacity:1;pointer-events:auto}
-#pbrowserModal{padding:0}
-#pbrowserModal .island{max-width:100vw;max-height:100vh;border-radius:0;transform:none}
-#pmodal{padding:20px}
-#pmodal .island{width:1280px;height:720px;max-width:96vw;max-height:92vh;border-radius:28px}
-.pmodal .island{background:#fff;border-radius:32px;box-shadow:0 20px 80px rgba(0,0,0,.2);max-width:90vw;max-height:90vh;overflow:hidden;transform:scale(.9);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.pmodal .island{background:#fff;border-radius:28px;box-shadow:0 16px 64px rgba(0,0,0,.2);max-width:90vw;max-height:90vh;overflow:hidden;transform:scale(.92);transition:transform .28s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;width:1280px;height:720px}
 .pmodal.show .island{transform:scale(1)}
 .pmodal-content{flex:1;overflow:hidden;position:relative}
-.pmodal-content iframe{width:100%;height:100%;border:none}
-.pmodal-content img{width:100%;height:100%;object-fit:contain}
-.pbrowser-browser{display:flex;flex-direction:column;height:100vh;width:100vw;border-radius:0}
-.pbrowser-frame{flex:1;background:#fff;overflow:hidden}
-.pbrowser-frame iframe{width:100%;height:100%;border:none}
-.pbrowser-bar{display:flex;align-items:center;gap:12px;padding:16px 24px;background:#f4f5f7;border-top:1px solid rgba(0,0,0,.06)}
-.pbrowser-nav{display:flex;gap:8px}
-.pbrowser-btn{width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s ease,transform .2s ease;color:#555}
-.pbrowser-btn:hover{background:#e9ecef;transform:scale(1.05)}
-.pbrowser-btn svg{width:18px;height:18px}
-.pbrowser-url{flex:1;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 16px;font-size:14px;color:#333;font-family:system-ui,-apple-system,sans-serif;outline:none;letter-spacing:-.01em}
-.pbrowser-url:focus{border-color:#5865F2}
-.pclose{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.5);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s ease,transform .2s ease;z-index:10}
-.pclose:hover{background:rgba(0,0,0,.7);transform:scale(1.1)}
+.pmodal-content img{width:100%;height:100%;object-fit:contain;display:block}
+.pclose{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s ease,transform .18s ease;z-index:10}
+.pclose:hover{background:rgba(0,0,0,.65);transform:scale(1.1)}
 .pclose svg{width:20px;height:20px}
-.pthumb{cursor:pointer}
-@media(max-width:900px){.pgrid{grid-template-columns:1fr;gap:20px}.pcontainer{padding:20px 24px 60px}.psection{font-size:26px}}
-@media(max-width:760px){#pheader{padding:18px 20px}#plogo{font-size:24px}.pcontainer{padding:16px 16px 48px}.pexp{flex-direction:column;text-align:center;padding:24px 20px;gap:16px;border-radius:24px;margin-bottom:16px}.pexpinfo{text-align:center}.pcomm{align-items:center;flex-direction:row;gap:8px}.phero{flex-direction:column;text-align:center;padding:28px 22px;gap:18px;border-radius:24px;margin-bottom:20px}.pheroinfo{text-align:center}.pheroname{font-size:28px}.pherobio{font-size:15px;margin-left:auto;margin-right:auto}.pdm{width:100%;padding:14px 22px}.pcard{border-radius:20px}.pinfo{padding:16px 18px}.ptitle{font-size:17px}.psection{font-size:22px;margin-top:24px;margin-bottom:16px}#kn{font-size:clamp(56px,16vw,96px);letter-spacing:-1px}#ks{font-size:16px}#khint{font-size:11px;bottom:20px;right:18px}#khint .kdot{width:7px;height:7px}.pmodal.island{max-width:95vw;max-height:95vw}.pbrowser-bar{flex-wrap:wrap}.pbrowser-url{width:100%;order:3;margin-top:8px}.pbrowser-nav{order:1}.pbrowser-btn{width:32px;height:32px}}
-@media(max-width:380px){.phero{padding:24px 18px}.pheroname{font-size:24px}.pherobio{font-size:14px}.pdm{font-size:14px}}
+
+/* Responsive */
+@media(max-width:900px){.pgrid{grid-template-columns:1fr;gap:18px}.pcontainer{padding:20px 24px 60px}.psection{font-size:26px}}
+@media(max-width:760px){#pheader{padding:18px 20px}#plogo{font-size:24px}.pcontainer{padding:16px 16px 48px}.pexp{flex-direction:column;text-align:center;padding:24px 20px;gap:16px;border-radius:24px;margin-bottom:16px}.pexpinfo{text-align:center}.pcomm{align-items:center;flex-direction:row;gap:8px}.phero{flex-direction:column;text-align:center;padding:28px 22px;gap:18px;border-radius:24px;margin-bottom:20px}.pheroinfo{text-align:center}.pheroname{font-size:28px}.pherobio{font-size:15px;margin-left:auto;margin-right:auto}.pdm{width:100%;padding:14px 22px}#kn{font-size:clamp(56px,16vw,96px);letter-spacing:-1px}#ks{font-size:16px}#khint{font-size:11px;bottom:20px;right:18px}}
+@media(max-width:380px){.phero{padding:24px 18px}.pheroname{font-size:24px}}
 </style>
 </head>
 <body>
+
 <div id="kw">
   <canvas id="kc"></canvas>
   <canvas id="kr"></canvas>
@@ -122,15 +123,14 @@ body{font-family:'Barlow',system-ui,sans-serif}
   </div>
   <div id="khint"><span class="kdot"></span>Click to proceed</div>
 </div>
+
 <div id="portfolio">
-  <div id="pheader">
-    <div id="plogo">Kamii</div>
-  </div>
+  <div id="pheader"><div id="plogo">Kamii</div></div>
   <div class="pcontainer" id="pcontainer">
     <div class="phero" id="phero">
       <div class="pavatarwrap">
-        <img class="pavatar" id="pavatar" alt="Kamii" src="https://cdn.discordapp.com/embed/avatars/0.png">
-        <div class="pstatus offline" id="pstatus"></div>
+        <img class="pavatar" id="pavatar" alt="Kamii" src="https://cdn.discordapp.com/embed/avatars/0.png" width="96" height="96">
+        <div class="pstatus" id="pstatus"></div>
       </div>
       <div class="pheroinfo">
         <div class="pheroname">kamii</div>
@@ -143,171 +143,139 @@ body{font-family:'Barlow',system-ui,sans-serif}
     </div>
   </div>
 </div>
+
+<!-- Image modal only (no browser modal needed) -->
 <div class="pmodal" id="pmodal">
-  <div class="island" id="pmodalIsland">
-    <button class="pclose" id="pclose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
+  <div class="island" style="position:relative">
+    <button class="pclose" id="pclose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     <div class="pmodal-content" id="pmodalContent"></div>
   </div>
 </div>
-<div class="pmodal" id="pbrowserModal">
-  <div class="island pbrowser-browser">
-    <button class="pclose" id="pbrowserClose">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-    <div class="pbrowser-frame">
-      <iframe id="pbrowserFrame" src=""></iframe>
-    </div>
-    <div class="pbrowser-bar">
-      <div class="pbrowser-nav">
-        <button class="pbrowser-btn" id="pbrowserBack">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <button class="pbrowser-btn" id="pbrowserForward">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <button class="pbrowser-btn" id="pbrowserRefresh">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-        </button>
-      </div>
-      <input class="pbrowser-url" id="pbrowserUrl" type="text" readonly>
-    </div>
-  </div>
-</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
+/* ─── Subtitle rotator ─── */
 const labels=['software engineer.','full stack dev.','cash lover.'];
 let li=0;
 const subEl=document.getElementById('ks');
 setInterval(()=>{
   subEl.style.opacity='0';
-  setTimeout(()=>{li=(li+1)%3;subEl.textContent=labels[li];subEl.style.opacity='1';},560);
+  setTimeout(()=>{li=(li+1)%3;subEl.textContent=labels[li];subEl.style.opacity='1';},460);
 },2800);
 
+/* ─── Discord presence ─── */
 function updatePresence(){
   fetch('https://api.lanyard.rest/v1/users/1244463352793665616').then(r=>r.json()).then(d=>{
-    if(!d||!d.success||!d.data)return;
+    if(!d?.success||!d.data)return;
     const u=d.data.discord_user;
-    if(u&&u.avatar){
+    if(u?.avatar){
       const ext=u.avatar.startsWith('a_')?'gif':'png';
       document.getElementById('pavatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.${ext}?size=256`;
     }
-    const status=d.data.discord_status||'offline';
     const el=document.getElementById('pstatus');
-    el.className='pstatus '+status;
+    el.className='pstatus '+(d.data.discord_status||'offline');
   }).catch(()=>{});
 }
 updatePresence();
 setInterval(updatePresence,30000);
 
+/* ─── 3-D splash scene ─── */
 function init(){
   if(typeof THREE==='undefined'){setTimeout(init,60);return;}
+
   const wrap=document.getElementById('kw');
   const canvas=document.getElementById('kc');
   const rippleCanvas=document.getElementById('kr');
   const W=wrap.clientWidth||680, H=wrap.clientHeight||460;
 
+  /* renderer – cap pixel ratio to 1 on high-DPI for perf */
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:'high-performance'});
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,1));
   renderer.setSize(W,H);
 
-  rippleCanvas.width=W;
-  rippleCanvas.height=H;
+  rippleCanvas.width=W; rippleCanvas.height=H;
   const rCtx=rippleCanvas.getContext('2d');
 
   const scene=new THREE.Scene();
   const cam=new THREE.PerspectiveCamera(42,W/H,0.1,100);
   cam.position.z=13;
 
-  const amb=new THREE.AmbientLight(0xffffff,0.5);
-  scene.add(amb);
-  const sun=new THREE.DirectionalLight(0xffffff,1.4);
-  sun.position.set(5,7,6);
-  scene.add(sun);
-  const fill=new THREE.DirectionalLight(0xB8C8E8,0.28);
-  fill.position.set(-5,-3,4);
-  scene.add(fill);
+  /* lighting – simplified (fewer lights = faster) */
+  scene.add(new THREE.AmbientLight(0xffffff,0.55));
+  const sun=new THREE.DirectionalLight(0xffffff,1.3);
+  sun.position.set(5,7,6); scene.add(sun);
 
+  /* shared geometry + material */
+  const sharedGeo=new THREE.SphereGeometry(1,8,8); /* 8-seg instead of 12 */
   const mat=new THREE.MeshStandardMaterial({color:0xBFADA8,roughness:0.62,metalness:0.04});
 
+  /* reduced sphere count: 18 → fewer collision pairs */
   const raw=[
     [0,.4,0,1.15],[-1.25,1.05,.3,.88],[1.15,1.35,-.25,.92],
     [-.3,-.85,.5,1.02],[1.45,-.35,.1,.76],[-1.55,-.4,-.25,.82],
     [.55,2.15,.2,.62],[-.82,2.05,-.3,.56],[2.1,.65,.4,.71],
     [-2.05,.85,.1,.73],[.2,-1.95,-.2,.82],[1.3,-1.45,.3,.66],
     [-1.12,-1.62,.42,.61],[2.25,-1.0,-.1,.56],[-2.3,-.95,.2,.51],
-    [.72,1.05,1.25,.46],[-.52,-.32,1.05,.51],[1.82,1.82,.5,.46],
-    [-1.82,1.92,.32,.43],[0,-2.55,.22,.66],[2.52,0,-.3,.49],
-    [-2.5,-1.82,0,.41],[.32,2.85,.5,.39],[1.05,-.5,-1.0,.51],
-    [-0.6,0.2,-0.8,.44],[0.0,1.6,0.9,.38],
+    [.72,1.05,1.25,.46],[-.52,-.32,1.05,.51],[2.52,0,-.3,.49],
   ];
+  const N=raw.length;
 
+  /* reuse geometry with scale instead of unique SphereGeometries */
   const meshes=raw.map(([x,y,z,r])=>{
-    const m=new THREE.Mesh(new THREE.SphereGeometry(r,12,12),mat);
+    const m=new THREE.Mesh(sharedGeo,mat);
     m.position.set(x,y,z);
+    m.scale.setScalar(r);
     scene.add(m);
-    return{m,x,y,z,r,
-      p:Math.random()*Math.PI*2,
-      p2:Math.random()*Math.PI*2,
-      p3:Math.random()*Math.PI*2,
-      s:0.12+Math.random()*0.22
-    };
+    return{m,x,y,z,r,p:Math.random()*Math.PI*2,p2:Math.random()*Math.PI*2,p3:Math.random()*Math.PI*2,s:0.12+Math.random()*0.22};
   });
-
   const states=raw.map(([x,y,z])=>({cx:x,cy:y,cz:z,vx:0,vy:0,vz:0}));
-  const N=states.length;
 
+  /* mouse */
   const raycaster=new THREE.Raycaster();
   const mNDC=new THREE.Vector2();
   const plane=new THREE.Plane(new THREE.Vector3(0,0,1),0);
   let mWorld=null;
 
-  wrap.addEventListener('mousemove',e=>{
+  wrap.addEventListener('pointermove',e=>{
     const r=wrap.getBoundingClientRect();
     mNDC.x=((e.clientX-r.left)/r.width)*2-1;
     mNDC.y=-((e.clientY-r.top)/r.height)*2+1;
     raycaster.setFromCamera(mNDC,cam);
     const hit=new THREE.Vector3();
     mWorld=raycaster.ray.intersectPlane(plane,hit)?hit:null;
-  });
-  wrap.addEventListener('mouseleave',()=>{mWorld=null;});
+  },{passive:true});
+  wrap.addEventListener('pointerleave',()=>{mWorld=null;});
 
+  /* ripple + click transition */
   let ripples=[];
-  let transitionTriggered=false;
-  let dispersing=false;
+  let transitionTriggered=false,dispersing=false;
+  let rippleDirty=false;
+
   wrap.addEventListener('click',e=>{
     if(transitionTriggered)return;
     const r=wrap.getBoundingClientRect();
-    const mx=e.clientX-r.left;
-    const my=e.clientY-r.top;
-    const maxR=Math.sqrt(
-      Math.pow(Math.max(mx,W-mx),2)+
-      Math.pow(Math.max(my,H-my),2)
-    )+10;
-    ripples.push({mx,my,maxR,r:0,alpha:1,phase:'expand',onDone:()=>{
-      transitionTriggered=true;
-      showPortfolio();
-    }});
+    const mx=e.clientX-r.left, my=e.clientY-r.top;
+    const maxR=Math.hypot(Math.max(mx,W-mx),Math.max(my,H-my))+10;
+    ripples.push({mx,my,maxR,r:0,phase:'expand',onDone:()=>{transitionTriggered=true;showPortfolio();}});
+    rippleDirty=true;
     dispersing=true;
-    mNDC.x=(mx/r.width)*2-1;
-    mNDC.y=-(my/r.height)*2+1;
+    mNDC.x=((e.clientX-r.left)/r.width)*2-1;
+    mNDC.y=-((e.clientY-r.top)/r.height)*2+1;
     raycaster.setFromCamera(mNDC,cam);
     const hit=new THREE.Vector3();
-    const click3D=raycaster.ray.intersectPlane(plane,hit)?hit:new THREE.Vector3(0,0,0);
+    const c3=raycaster.ray.intersectPlane(plane,hit)?hit:new THREE.Vector3();
     for(let i=0;i<N;i++){
       const st=states[i];
-      const dx=st.cx-click3D.x;
-      const dy=st.cy-click3D.y;
-      const dz=st.cz-click3D.z+0.0001;
+      const dx=st.cx-c3.x,dy=st.cy-c3.y,dz=st.cz-c3.z+.0001;
       const d=Math.sqrt(dx*dx+dy*dy+dz*dz)||1;
-      const force=2.5+Math.random()*1.5;
-      st.vx=(dx/d)*force+(Math.random()-0.5)*0.3;
-      st.vy=(dy/d)*force+(Math.random()-0.5)*0.3;
-      st.vz=(dz/d)*force*0.5+(Math.random()-0.5)*0.3;
+      const f=2.5+Math.random()*1.5;
+      st.vx=(dx/d)*f+(Math.random()-.5)*.3;
+      st.vy=(dy/d)*f+(Math.random()-.5)*.3;
+      st.vz=(dz/d)*f*.5+(Math.random()-.5)*.3;
     }
   });
 
+  /* ── portfolio content ── */
   const sites=[
     {name:'Dynamic Achievers',url:'https://www.dynamicachievers.org/'},
     {name:'Astrix',url:'https://astrix-web-panel.vercel.app/'},
@@ -317,288 +285,187 @@ function init(){
     {name:'SkillSpring',url:'https://skillspring-gules.vercel.app/'}
   ];
   const robloxProjects=[
-    {name:'Viewmodel Combat Testing',video:'2cwkel'},
-    {name:'Anti-Cheat UI Demo Project',video:'ggcmwp'},
-    {name:'Animation Test #1',video:'qu2v98'},
-    {name:'Animation Test #2',video:'uuzkpt'}
+    {name:'Viewmodel Combat Testing',video:'h21spk',customIframe:true},
+    {name:'Viewmodel test 1',video:'tvzbd3'},
+    {name:'Viewmodel test 2',video:'gudk41'},
+    {name:'Animation test 1',video:'7n175q'}
   ];
-  const uxProjects=[
-    {name:'UX Design #1',image:'https://files.catbox.moe/5g6mim.png'}
-  ];
+  const uxProjects=[{name:'UX Design #1',image:'https://files.catbox.moe/5g6mim.png'}];
+
   const container=document.getElementById('pcontainer');
-  const portfolioBuilt=(function(){
+  const portfolioCards=(function(){
     const frag=document.createDocumentFragment();
-    const fullstackSection=document.createElement('div');
-    fullstackSection.className='psection';
-    fullstackSection.textContent='Fullstack Projects';
-    frag.appendChild(fullstackSection);
-    const fullstackGrid=document.createElement('div');
-    fullstackGrid.className='pgrid';
+
+    /* Fullstack */
+    const s1=document.createElement('div'); s1.className='psection'; s1.textContent='Fullstack Projects'; frag.appendChild(s1);
+    const g1=document.createElement('div'); g1.className='pgrid';
     sites.forEach(s=>{
-      const card=document.createElement('div');
-      card.className='pcard';
+      const card=document.createElement('div'); card.className='pcard';
+      /* microlink screenshot – add width/height hints to reduce CLS */
       const thumbUrl=`https://api.microlink.io/?url=${encodeURIComponent(s.url)}&screenshot=true&meta=false&embed=screenshot.url&viewport.width=1280&viewport.height=800`;
-      card.innerHTML=`<img class="pthumb" src="${thumbUrl}" alt="${s.name}" loading="eager"><div class="pinfo"><div class="ptitle">${s.name}</div><a class="pvisit" href="${s.url}" target="_blank" rel="noopener">Visit</a></div>`;
-      card.querySelector('.pthumb').addEventListener('click',e=>{
-        e.stopPropagation();
-        showBrowser(s.url);
-      });
-      fullstackGrid.appendChild(card);
+      card.innerHTML=`<img class="pthumb" src="${thumbUrl}" alt="${s.name}" loading="lazy" width="640" height="400"><div class="pinfo"><div class="ptitle">${s.name}</div><a class="pvisit" href="${s.url}" target="_blank" rel="noopener">Visit ↗</a></div>`;
+      g1.appendChild(card);
     });
-    frag.appendChild(fullstackGrid);
-    const robloxSection=document.createElement('div');
-    robloxSection.className='psection';
-    robloxSection.textContent='Roblox Projects';
-    frag.appendChild(robloxSection);
+    frag.appendChild(g1);
 
-    const expSection=document.createElement('div');
-    expSection.className='pexp';
-    expSection.id='pexp';
-    expSection.innerHTML=`<img class="pexpicon" src="https://media.tenor.com/bDmyKRMnKMcAAAAM/like-cat.gif" alt="Experience"><div class="pexpinfo"><div class="pexptext">I've been scripting in <strong>roblox</strong> for 4+ years, animating for 2, and in <strong>UX Design</strong> for 6 Months.</div></div><div class="pcomm"><div class="pcommlabel">Commission Status</div><div class="pcommstatus">Available</div></div>`;
-    frag.appendChild(expSection);
+    /* Roblox experience row */
+    const s2=document.createElement('div'); s2.className='psection'; s2.textContent='Roblox Projects'; frag.appendChild(s2);
+    const expRow=document.createElement('div'); expRow.className='pexp'; expRow.id='pexp';
+    expRow.innerHTML=`<img class="pexpicon" src="https://media.tenor.com/bDmyKRMnKMcAAAAM/like-cat.gif" alt="Experience" loading="lazy" width="108" height="108"><div class="pexpinfo"><div class="pexptext">I've been scripting in <strong>roblox</strong> for 4+ years, animating for 2, and in <strong>UX Design</strong> for 6 months.</div></div><div class="pcomm"><div class="pcommlabel">Commission Status</div><div class="pcommstatus">Available</div></div>`;
+    frag.appendChild(expRow);
 
-    const robloxGrid=document.createElement('div');
-    robloxGrid.className='pgrid';
+    const g2=document.createElement('div'); g2.className='pgrid';
     robloxProjects.forEach(p=>{
-      const card=document.createElement('div');
-      card.className='pcard video';
-      const posterUrl=`https://cdn-cf-east.streamable.com/image/${p.video}.jpg`;
-      card.innerHTML=`<div class="pvidposter" style="background-image:url('${posterUrl}')"><div class="pplay"><svg viewBox='0 0 24 24' fill='currentColor'><path d='M8 5v14l11-7z'/></svg></div></div><div class="pinfo"><div class="ptitle">${p.name}</div></div>`;
-      card.addEventListener('click',e=>{
-        if(e.target.closest('.pinfo'))return;
-        const ext=`https://streamable.com/${p.video}`;
-        showModalContent(`
-          <div style=\"position:relative;width:100%;height:100%;background:#000\">
-            <div id="vloading" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1\">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></svg>
-            </div>
-            <iframe title=\"${p.name}\" allow=\"autoplay; fullscreen; picture-in-picture\" loading=\"lazy\" src=\"https://streamable.com/e/${p.video}?autoplay=1\" onload=\"document.getElementById('vloading').style.display='none'\" style=\"position:absolute;left:0;top:0;width:100%;height:100%;border:none;overflow:hidden;display:block\"></iframe>
+      const card=document.createElement('div'); card.className='pcard video';
+      if(p.customIframe){
+        card.innerHTML=`
+          <div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/${p.video}?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+          <div class="pinfo"><div class="ptitle">${p.name}</div></div>`;
+      }else{
+        const posterUrl=`https://cdn-cf-east.streamable.com/image/${p.video}.jpg`;
+        card.innerHTML=`
+          <div class="pvidwrap" data-video="${p.video}" data-title="${p.name}">
+            <img class="pvid-poster" src="${posterUrl}" alt="${p.name}" loading="lazy" width="480" height="270">
+            <iframe class="pvid-iframe" title="${p.name}" allow="autoplay;fullscreen" loading="lazy" src="" frameborder="0"></iframe>
+            <div class="pplay"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
           </div>
-        `);
-      });
-      robloxGrid.appendChild(card);
+          <div class="pinfo"><div class="ptitle">${p.name}</div></div>`;
+        /* lazy-load iframe src on click */
+        card.querySelector('.pvidwrap').addEventListener('click',function(){
+          if(this.classList.contains('playing'))return;
+          const iframe=this.querySelector('.pvid-iframe');
+          iframe.src=`https://streamable.com/e/${this.dataset.video}?autoplay=1`;
+          this.classList.add('playing');
+        });
+      }
+      g2.appendChild(card);
     });
-    frag.appendChild(robloxGrid);
+    frag.appendChild(g2);
 
-    const uxSection=document.createElement('div');
-    uxSection.className='psection';
-    uxSection.textContent='UX Design';
-    frag.appendChild(uxSection);
-
-    const uxGrid=document.createElement('div');
-    uxGrid.className='pgrid';
+    /* UX */
+    const s3=document.createElement('div'); s3.className='psection'; s3.textContent='UX Design'; frag.appendChild(s3);
+    const g3=document.createElement('div'); g3.className='pgrid';
     uxProjects.forEach(p=>{
-      const card=document.createElement('div');
-      card.className='pcard';
-      card.innerHTML=`<img class="pthumb" src="${p.image}" alt="${p.name}" loading="eager"><div class="pinfo"><div class="ptitle">${p.name}</div></div>`;
+      const card=document.createElement('div'); card.className='pcard';
+      card.innerHTML=`<img class="pthumb" src="${p.image}" alt="${p.name}" loading="lazy" width="640" height="400"><div class="pinfo"><div class="ptitle">${p.name}</div></div>`;
       card.querySelector('.pthumb').addEventListener('click',e=>{
         e.stopPropagation();
-        showModalContent(`<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain">`);
+        showModal(`<img src="${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;display:block">`);
       });
-      uxGrid.appendChild(card);
+      g3.appendChild(card);
     });
-    frag.appendChild(uxGrid);
+    frag.appendChild(g3);
 
-    const footer=document.createElement('div');
-    footer.className='pfooter';
-    footer.textContent='more projects on the way, looking forward to your projects!';
+    const footer=document.createElement('div'); footer.className='pfooter';
+    footer.textContent='more projects on the way, looking forward to yours!';
     frag.appendChild(footer);
 
     container.appendChild(frag);
     return Array.from(container.querySelectorAll('.pcard'));
   })();
 
-  let rafRunning=true;
-
+  /* modal */
   const modal=document.getElementById('pmodal');
   const modalContent=document.getElementById('pmodalContent');
-  const modalIsland=document.getElementById('pmodalIsland');
-  const pclose=document.getElementById('pclose');
+  function closeModal(){modal.classList.remove('show');modalContent.innerHTML='';}
+  document.getElementById('pclose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  function showModal(html){modalContent.innerHTML=html;modal.classList.add('show');}
 
-  function closeModal(){
-    modal.classList.remove('show');
-    const iframe=modalContent.querySelector('iframe');
-    if(iframe)iframe.src='';
-    modalContent.innerHTML='';
-  }
-
-  pclose.addEventListener('click',closeModal);
-  modal.addEventListener('click',e=>{
-    if(e.target===modal)closeModal();
-  });
-
-  function showModalContent(html){
-    modalContent.innerHTML=html;
-    modal.classList.add('show');
-  }
-
-  const browserModal=document.getElementById('pbrowserModal');
-  const browserFrame=document.getElementById('pbrowserFrame');
-  const browserUrl=document.getElementById('pbrowserUrl');
-  const browserClose=document.getElementById('pbrowserClose');
-  const browserBack=document.getElementById('pbrowserBack');
-  const browserForward=document.getElementById('pbrowserForward');
-  const browserRefresh=document.getElementById('pbrowserRefresh');
-
-  function closeBrowser(){
-    browserModal.classList.remove('show');
-    browserFrame.src='';
-  }
-
-  browserClose.addEventListener('click',closeBrowser);
-  browserModal.addEventListener('click',e=>{
-    if(e.target===browserModal)closeBrowser();
-  });
-
-  browserBack.addEventListener('click',()=>{
-    browserFrame.contentWindow.history.back();
-  });
-  browserForward.addEventListener('click',()=>{
-    browserFrame.contentWindow.history.forward();
-  });
-  browserRefresh.addEventListener('click',()=>{
-    browserFrame.src=browserFrame.src;
-  });
-
-  function showBrowser(url){
-    browserFrame.src=url;
-    browserUrl.value=url;
-    browserModal.classList.add('show');
-  }
+  let rafRunning=true;
 
   function showPortfolio(){
     document.getElementById('portfolio').classList.add('show');
-    document.getElementById('kw').classList.add('hidden');
+    wrap.classList.add('hidden');
     document.body.style.overflow='auto';
     requestAnimationFrame(()=>{
       document.getElementById('phero').classList.add('in');
-      portfolioBuilt.forEach((card,i)=>{
-        setTimeout(()=>card.classList.add('in'),120+i*80);
-      });
-      setTimeout(()=>document.getElementById('pexp').classList.add('in'),120+portfolioBuilt.length*80+100);
+      portfolioCards.forEach((card,i)=>setTimeout(()=>card.classList.add('in'),100+i*60));
+      setTimeout(()=>document.getElementById('pexp').classList.add('in'),100+portfolioCards.length*60+80);
     });
-    setTimeout(()=>{
-      document.getElementById('kw').style.display='none';
-      rafRunning=false;
-    },700);
+    setTimeout(()=>{wrap.style.display='none';rafRunning=false;renderer.dispose();},620);
   }
 
+  /* ── main loop ── */
   let t=0;
+
+  /* O(N²) collision – run only 1 pass (was 2) */
+  function solveCollisions(){
+    for(let i=0;i<N;i++){
+      for(let j=i+1;j<N;j++){
+        const si=states[i],sj=states[j];
+        const dx=sj.cx-si.cx,dy=sj.cy-si.cy,dz=sj.cz-si.cz;
+        const d2=dx*dx+dy*dy+dz*dz;
+        const minD=meshes[i].r+meshes[j].r;
+        if(d2<minD*minD&&d2>.0001){
+          const d=Math.sqrt(d2),ov=(minD-d)*.5;
+          const nx=dx/d,ny=dy/d,nz=dz/d;
+          si.cx-=nx*ov;si.cy-=ny*ov;si.cz-=nz*ov;
+          sj.cx+=nx*ov;sj.cy+=ny*ov;sj.cz+=nz*ov;
+          const dot=(sj.vx-si.vx)*nx+(sj.vy-si.vy)*ny+(sj.vz-si.vz)*nz;
+          if(dot<0){const imp=dot*.1;si.vx+=imp*nx;si.vy+=imp*ny;si.vz+=imp*nz;sj.vx-=imp*nx;sj.vy-=imp*ny;sj.vz-=imp*nz;}
+        }
+      }
+    }
+  }
+
   (function loop(){
     if(!rafRunning)return;
     requestAnimationFrame(loop);
     t+=.007;
 
     for(let i=0;i<N;i++){
-      const o=meshes[i];
-      const st=states[i];
-      if(dispersing){
-        st.cx+=st.vx;
-        st.cy+=st.vy;
-        st.cz+=st.vz;
-        continue;
-      }
-      const f1=t*o.s, f2=t*o.s*1.414, f3=t*o.s*0.577, f4=t*o.s*1.732;
-      const tx=o.x+Math.sin(f1+o.p)*0.38+Math.sin(f2+o.p2)*0.18;
-      const ty=o.y+Math.cos(f1*0.82+o.p)*0.35+Math.cos(f4+o.p2)*0.16;
-      const tz=o.z+Math.sin(f3+o.p3)*0.28+Math.cos(f2*0.7+o.p)*0.12;
-      st.vx+=(tx-st.cx)*0.016;
-      st.vy+=(ty-st.cy)*0.016;
-      st.vz+=(tz-st.cz)*0.016;
-
+      const o=meshes[i],st=states[i];
+      if(dispersing){st.cx+=st.vx;st.cy+=st.vy;st.cz+=st.vz;continue;}
+      const tx=o.x+Math.sin(t*o.s+o.p)*.38+Math.sin(t*o.s*1.4+o.p2)*.18;
+      const ty=o.y+Math.cos(t*o.s*.82+o.p)*.35+Math.cos(t*o.s*1.7+o.p2)*.16;
+      const tz=o.z+Math.sin(t*o.s*.6+o.p3)*.28+Math.cos(t*o.s*.7+o.p)*.12;
+      st.vx+=(tx-st.cx)*.016;st.vy+=(ty-st.cy)*.016;st.vz+=(tz-st.cz)*.016;
       if(mWorld){
-        const dx=st.cx-mWorld.x, dy=st.cy-mWorld.y, dz=st.cz-mWorld.z*0.1;
-        const d2=dx*dx+dy*dy+dz*dz, R=3.0;
-        if(d2<R*R&&d2>0.0001){
-          const d=Math.sqrt(d2);
-          const f=Math.pow((R-d)/R,1.5)*0.22;
-          st.vx+=(dx/d)*f; st.vy+=(dy/d)*f; st.vz+=(dz/d)*f*0.15;
-        }
+        const dx=st.cx-mWorld.x,dy=st.cy-mWorld.y,dz=st.cz-mWorld.z*.1;
+        const d2=dx*dx+dy*dy+dz*dz,R=3;
+        if(d2<R*R&&d2>.0001){const d=Math.sqrt(d2),f=Math.pow((R-d)/R,1.5)*.2;st.vx+=(dx/d)*f;st.vy+=(dy/d)*f;st.vz+=(dz/d)*f*.15;}
       }
-
       const spd=Math.sqrt(st.vx*st.vx+st.vy*st.vy+st.vz*st.vz);
-      if(spd>0.22){const sc=0.22/spd;st.vx*=sc;st.vy*=sc;st.vz*=sc;}
-      st.vx*=0.92; st.vy*=0.92; st.vz*=0.92;
-      st.cx+=st.vx; st.cy+=st.vy; st.cz+=st.vz;
+      if(spd>.22){const sc=.22/spd;st.vx*=sc;st.vy*=sc;st.vz*=sc;}
+      st.vx*=.92;st.vy*=.92;st.vz*=.92;
+      st.cx+=st.vx;st.cy+=st.vy;st.cz+=st.vz;
     }
 
-    if(!dispersing)for(let pass=0;pass<2;pass++){
-      for(let i=0;i<N;i++){
-        for(let j=i+1;j<N;j++){
-          const si=states[i];
-          const sj=states[j];
-          const dx=sj.cx-si.cx;
-          const dy=sj.cy-si.cy;
-          const dz=sj.cz-si.cz;
-          const d2=dx*dx+dy*dy+dz*dz;
-          const minD=meshes[i].r+meshes[j].r;
-          if(d2<minD*minD){
-            if(d2<0.0001){
-              si.cx+=Math.random()*0.02-0.01;
-              si.cy+=Math.random()*0.02-0.01;
-              continue;
-            }
-            const d=Math.sqrt(d2);
-            const ov=(minD-d)*0.5;
-            const nx=dx/d;
-            const ny=dy/d;
-            const nz=dz/d;
-            si.cx-=nx*ov;
-            si.cy-=ny*ov;
-            si.cz-=nz*ov;
-            sj.cx+=nx*ov;
-            sj.cy+=ny*ov;
-            sj.cz+=nz*ov;
-            const rvx=sj.vx-si.vx;
-            const rvy=sj.vy-si.vy;
-            const rvz=sj.vz-si.vz;
-            const dot=rvx*nx+rvy*ny+rvz*nz;
-            if(dot<0){
-              const imp=dot*0.12;
-              si.vx+=imp*nx;
-              si.vy+=imp*ny;
-              si.vz+=imp*nz;
-              sj.vx-=imp*nx;
-              sj.vy-=imp*ny;
-              sj.vz-=imp*nz;
-            }
-          }
-        }
-      }
-    }
+    if(!dispersing)solveCollisions();
 
     for(let i=0;i<N;i++){
-      const o=meshes[i], st=states[i];
+      const o=meshes[i],st=states[i];
       o.m.position.set(st.cx,st.cy,st.cz);
-      o.m.scale.setScalar(1+Math.sin(t*o.s*1.6+o.p)*0.022);
+      /* breathe using scale on the mesh (not extra sin calls per frame) */
+      const sc=1+Math.sin(t*o.s*1.6+o.p)*.02;
+      o.m.scale.setScalar(o.r*sc);
     }
 
     renderer.render(scene,cam);
 
-    if(ripples.length>0){
-      rCtx.clearRect(0,0,W,H);
+    /* ripple – only draw when active */
+    if(rippleDirty){
+      rCtx.clearRect(0,0,rippleCanvas.width,rippleCanvas.height);
+      let allDone=true;
       for(const rp of ripples){
-        if(rp.phase==='expand'){
-          rp.r+=(rp.maxR-rp.r)*0.1+2;
-          if(rp.r>=rp.maxR*0.998){
-            rp.r=rp.maxR;
-            rp.phase='done';
-            if(rp.onDone&&!rp.done){rp.done=true;rp.onDone();}
-          }
-        }
+        rp.r+=(rp.maxR-rp.r)*.1+2;
+        if(rp.r>=rp.maxR*.998){rp.r=rp.maxR;if(!rp.done){rp.done=true;rp.onDone&&rp.onDone();}}
+        else{allDone=false;}
         rCtx.beginPath();
         rCtx.arc(rp.mx,rp.my,rp.r,0,Math.PI*2);
-        rCtx.fillStyle=`rgba(255,255,255,${rp.alpha})`;
+        rCtx.fillStyle='rgba(255,255,255,'+rp.alpha+')';
         rCtx.fill();
       }
+      if(allDone){ripples=[];rippleDirty=false;}
     }
   })();
 
   window.addEventListener('resize',()=>{
-    const nw=wrap.clientWidth, nh=wrap.clientHeight;
-    cam.aspect=nw/nh; cam.updateProjectionMatrix(); renderer.setSize(nw,nh);
-    rippleCanvas.width=nw; rippleCanvas.height=nh;
-  });
+    const nw=wrap.clientWidth,nh=wrap.clientHeight;
+    cam.aspect=nw/nh;cam.updateProjectionMatrix();renderer.setSize(nw,nh);
+    rippleCanvas.width=nw;rippleCanvas.height=nh;
+  },{passive:true});
 }
 init();
 </script>
